@@ -1,0 +1,17 @@
+.mat-card-avatar {
+  height: 80px;
+  border-radius: 0;
+  width: auto;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 0;
+}
+
+.mat-expansion-panel {
+  margin-bottom: 5px;
+}
+
+.mat-mini-fab {
+  background-color: #8be6ff;
+}

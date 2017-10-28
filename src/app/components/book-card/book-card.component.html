@@ -1,0 +1,27 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <strong>{{book.title | capitalize}}</strong>, {{book.author}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{book.title | capitalize}}</mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+      <mat-card-subtitle>{{book.date}}</mat-card-subtitle>
+      <img mat-card-avatar src={{book.imageUrl}} alt={{book.title}}>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{book.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-mini-fab (click)="editBook()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab (click)="deleteBook()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</mat-expansion-panel>

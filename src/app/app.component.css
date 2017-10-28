@@ -1,0 +1,51 @@
+  .menu-overlay {
+    position: fixed;
+    z-index: 900;
+  }
+
+  .header {
+    top: 0;
+    left: 0;
+    box-shadow: 0px -5px 15px 5px #111;
+  }
+
+  .footer {
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 5px 15px 5px #111;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .site-content {
+    padding: 70px 0;
+  }
+
+  .pagination {
+    justify-content: center;
+    background-color: transparent;
+  }
+
+  .footer span {
+    font-size: 12px;
+  }
+
+  .love i {
+    font-size: 16px;
+    color: red;
+  }
+
+  .social i {
+    font-size: 30px;
+  }
+
+  .social a {
+    text-decoration: none !important;
+    color: black;
+  }
+
+  mat-toolbar {
+    background-color: #c0ffb7;
+  }

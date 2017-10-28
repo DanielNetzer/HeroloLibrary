@@ -1,0 +1,71 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{dialogTitle}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="bookFormGroup" #bookForm="ngForm">
+      <mat-form-field>
+        <input matInput formControlName="authorFormControl" [(ngModel)]="formBook.author" placeholder="Author">
+        <mat-error *ngIf="bookFormGroup.get('authorFormControl').hasError('required')">
+          Author name is
+          <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="bookFormGroup.get('authorFormControl').hasError('pattern')">
+          Author name can only contain
+          <strong>english alphabet, spaces, commas and periods</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="titleFormControl" [(ngModel)]="formBook.title" appDuplicateTitle placeholder="Title">
+        <mat-error *ngIf="bookFormGroup.get('titleFormControl').hasError('required')">
+          Title is
+          <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="bookFormGroup.get('titleFormControl').hasError('pattern')">
+          Title can only contain
+          <strong>english alphabet, spaces, commas and periods</strong>
+        </mat-error>
+        <mat-error *ngIf="bookFormGroup.get('titleFormControl').hasError('appDuplicateTitle')">
+          Title with the same
+          <strong>name</strong> already exist
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="dateFormControl" [(ngModel)]="formBook.date" placeholder="Published At" [max]="maxDate"
+          [matDatepicker]="myDatepicker">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker></mat-datepicker>
+        <mat-error *ngIf="bookFormGroup.get('dateFormControl').hasError('required')">
+          Date is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="imageUrlFormControl" [(ngModel)]="formBook.imageUrl" placeholder="Image Url">
+        <mat-error *ngIf="bookFormGroup.get('imageUrlFormControl').hasError('required')">
+          Image url is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput formControlName="descriptionFormControl" placeholder="Description" [(ngModel)]="formBook.description"></textarea>
+        <mat-error *ngIf="bookFormGroup.get('descriptionFormControl').hasError('required')">
+          Description is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-mini-fab (click)="saveBook()" [disabled]="!bookForm.form.valid">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="closeDialog()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

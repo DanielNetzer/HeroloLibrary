@@ -1,0 +1,9 @@
+.mat-card {
+  box-shadow: none !important;
+  padding: 14px;
+}
+
+.mat-form-field {
+  padding: 10px 0;
+  width: 100%;
+}
