@@ -4,5 +4,6 @@ export interface IBook {
     date: Date;
     title: string;
     description?: string;
+    imageUrl?: string;
 }
 
