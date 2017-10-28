@@ -7,3 +7,10 @@ body {
 }
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.mat-mini-fab {
+  background-color: #8be6ff;
+}
+
+.mat-accent {
+  background-color: #8be6ff;
+}
