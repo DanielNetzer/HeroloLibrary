@@ -102,6 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       deleteSnackBarRef.onAction().subscribe(() => {
         this.booksForCurrentPage = this.booksForCurrentPage.filter(b => b.id !== book.id);
+        this.allBooks = this.allBooks.filter(b => b.id !== book.id);
         this.snackBar.open(deleteSuccess, null, {
           duration: 2000,
         });
@@ -139,10 +140,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
             if (isNew) {
               this.allBooks = [...this.allBooks, response];
+            } else {
+              this.allBooks[response.id - 1] = response;
+              this.booksForCurrentPage[response.id - 1] = response;
             }
-
-            this.allBooks[response.id - 1] = response;
-            this.booksForCurrentPage[response.id - 1] = response;
 
           }, (err) => {
             console.error(err);
